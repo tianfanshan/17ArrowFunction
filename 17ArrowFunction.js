@@ -10,7 +10,7 @@
 
 const saludar = () => 'hola';
 
-console.log(saludar)
+console.log(saludar())
 
 
 //Convierte la siguiente función en una función flecha en línea:
@@ -83,18 +83,26 @@ let gente = [
     },
   ];
 
+let personaMenos25 = [];
 
 gente.forEach(function(persona){
     if(persona.edad >= 25){
-        console.log(persona);
+        personaMenos25.push(persona.nombre);
     }
 });
 
+console.log(personaMenos25)
+
+
+let personaEmpiezaPorJ = []
+
 gente.forEach(function(empiezaPorJ){
     if(empiezaPorJ.nombre.charAt(0,1) === 'J'){
-        console.log(empiezaPorJ);
+        personaEmpiezaPorJ.push(empiezaPorJ.nombre);
     }
 });
+
+console.log(personaEmpiezaPorJ)
 
 
 
@@ -108,8 +116,9 @@ const numbers = [ 4, 5, 6, 7, 8, 9, 10];
 // [256, 3125, 46656, 823543, 16777216, 387420489, 10000000000]
 
 
-const elevarNumber = numbers.map((number) => console.log(number ** number))
+const elevarNumber = numbers.map((number) => number ** number)
 
+console.log(elevarNumber)
 
 
 
@@ -126,18 +135,17 @@ const foodList = ["Pizza", "Ramen", "Paella", "Entrecot"];
    ]
 */
 
-const comoSoy = ['Italia','Japon','Valencia']
+const comoSoy = ['Italia','Japon','Valencia'];
 
-const queMeGusta = foodList.map((comida,i)=>{
-  if(i >= comoSoy.length){
-    return `Aunque no como carne, el ${comida} es sabroso`
-  }
-  return `Como soy de ${comoSoy}, amo comer ${comida}`
-})
+const list = foodList.map((food , i) => {
+    if(food == 'Entrecot'){
+      return `Aunque no como ${comoSoy[i]}, el ${food} es sabroso`
+    }else{
+      return `Como soy de ${comoSoy[i]} amo comer ${food}`
+    }
+});
 
-console.log(queMeGusta)
-
-//copiado por lo de Mike que esta muy interesado y no me salia
+console.log(list);
 
 
 //4.Filter
